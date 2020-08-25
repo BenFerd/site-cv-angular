@@ -1,0 +1,117 @@
+#body{
+    height: 500px;
+    background: #113560;
+    overflow: hidden;
+  }
+  .title-wrapper{
+    display: flex;
+    padding-top: 150px;
+    justify-content: center;
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // top: 0;
+    // bottom: 0;
+    h1{
+      font-size: 5em;
+      color: white;
+      margin: 0;
+    }
+  }
+  
+  /** Stars **/
+  
+  //n est le nombre d'étoiles requises
+  @function multiple-box-shadow ($n) {
+    $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  
+    @for $i from 2 through $n {
+      $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+    }
+  
+    @return unquote($value);
+  }
+  
+  $shadows-small: multiple-box-shadow(1000);
+  $shadows-medium: multiple-box-shadow(400);
+  $shadows-big: multiple-box-shadow(200);
+  
+  #stars1 {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadows-small;
+    animation: animStar 50s linear infinite;
+  
+    &:after { 
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: $shadows-small;
+    }
+  }
+  
+  #stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+    animation: animStar 100s linear infinite;
+  
+    &:after { 
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      box-shadow: $shadows-medium;
+    }
+  }
+  
+  #stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadows-big;
+    animation: animStar 150s linear infinite;
+  
+    &:after { 
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow: $shadows-big;
+    }
+  }
+  
+  @keyframes animStar {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-2000px);
+    }
+  }
+  
+  /** Starship **/
+  
+  .starship-container{
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    transform: translate(-50%, 0%);
+  }
+  .starship{
+    width: 20vw;
+    will-change: transform;
+    transition: transform 100ms ease;
+  }
+
+  
+  

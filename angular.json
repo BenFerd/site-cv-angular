@@ -126,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "site-cv-angular"
+    }
+  },
+  "defaultProject": "site-cv-angular",
+  "cli": {
+    "analytics": false
+  }
 }

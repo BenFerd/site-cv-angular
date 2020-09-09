@@ -2,7 +2,7 @@ $bkgr_main: #113560;
 $bkgr_card: rgb(66, 82, 224);
 /** Stars Top **/
 #stars {
-  height: 250px;
+  height: 350px;
   background: $bkgr_main;
   overflow: hidden;
   .title-wrapper {
@@ -33,7 +33,7 @@ $bkgr_card: rgb(66, 82, 224);
 .pdf {
   height: 100px;
   overflow: hidden;
-  background: linear-gradient(18deg, $bkgr_main, $bkgr_card);
+  background: transparent;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -45,7 +45,6 @@ $bkgr_card: rgb(66, 82, 224);
   width: 100px;
   height: 100px;
   cursor: pointer;
-
 }
 
 .hexagon {
@@ -190,6 +189,7 @@ $d: 700ms;
   flex-direction: row;
   justify-content: center;
   align-content: space-around;
+  flex-wrap: wrap;
   padding: 1rem;
 }
 .card {
@@ -270,6 +270,9 @@ $d: 700ms;
 }
 
 #card3 {
+  background-color: $bkgr_card;
+}
+#card4 {
   background-color: $bkgr_card;
 }
 td {
@@ -372,6 +375,65 @@ td {
   }
 }
 
+// card flip
+
+iframe{
+  border-radius: 2rem;
+  width: 350px;
+}
+.front{
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flip {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  padding: 1rem;
+  width: 350px;
+  height: 350px;
+  text-align: center;
+  color: whitesmoke;
+  border-radius: 2rem;
+  background-color: $bkgr_card;
+  >.front,
+  >.back {
+      display: block;
+      transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+      transition-duration: .5s;
+      transition-property: transform, opacity;
+  }
+  >.front {
+      transform: rotateY(0deg);
+  }
+  >.back {
+      position: absolute;
+      opacity: 0;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      transform: rotateY(-180deg);
+  }
+  &:hover {
+      >.front {
+          transform: rotateY(180deg);
+      }
+      >.back {
+          opacity: 1;
+          transform: rotateY(0deg);
+      }
+  }
+
+
+
 @media (max-width: 990px) {
   .page-content {
     display: flex;
@@ -379,4 +441,5 @@ td {
     justify-content: center;
     align-items: center;
   }
+}
 }

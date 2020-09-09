@@ -1,28 +1,38 @@
-
-<div class="contact">
-  <small>Enter message (optional) and click button "Send"</small>
-  <div class="wrapper centered">
-    <article class="letter">
-      <div class="side">
-        <h1>Contact us</h1>
-        <p>
-          <textarea placeholder="Your message"></textarea>
-        </p>
-      </div>
-      <div class="side">
-        <p>
-          <input type="text" placeholder="Your name" />
-        </p>
-        <p>
-          <input type="email" placeholder="Your email" />
-        </p>
-        <p>
-          <button id="sendLetter">Send</button>
-        </p>
-      </div>
-    </article>
-    <div class="envelope front"></div>
-    <div class="envelope back"></div>
+<div class="container">
+  <h2 class="text-center mb-5">Envoyer moi un mail</h2>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
+        <div class="form-group">
+          <label for="Email">Email*</label>
+          <input
+            type="email"
+            class="form-control"
+            name="Email"
+            formControlName="Email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="fullname">Nom Prénom*</label>
+          <input type="text" class="form-control" name="Fullname" />
+        </div>
+        <div class="form-group">
+          <label for="comment">Message*</label>
+          <textarea
+            class="form-control"
+            formControlName="Comment"
+            name="Comment"
+          >
+          </textarea>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!FormData.valid"
+        >
+          Envoyer
+        </button>
+      </form>
+    </div>
   </div>
-  <p class="result-message centered">Thank you for your message</p>
 </div>

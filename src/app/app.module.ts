@@ -11,7 +11,7 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
 import { ContactPageComponent } from "./components/contact-page/contact-page.component";
 import { BlogPageComponent } from "./components/blog-page/blog-page.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
-import { ContactService } from "./contact.service";
+
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { ContactService } from "./contact.service";
     PageNotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
-  providers: [ContactService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
